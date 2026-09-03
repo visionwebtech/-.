@@ -112,18 +112,10 @@ button {
   min-width: 0;
 }
 
-/* FIXED: .brand-logo was defined twice with conflicting sizes. Merged into one rule. */
 .brand-logo {
-  width: auto;
-  max-width: clamp(126px, 16vw, 182px);
-  max-height: 58px;
+  width: clamp(132px, 16vw, 184px);
+  height: auto;
   object-fit: contain;
-  object-position: left center;
-}
-
-.footer-brand .brand-logo {
-  max-height: 52px;
-  max-width: min(180px, 42vw);
 }
 
 .brand-fallback {
@@ -474,37 +466,24 @@ button {
   border-color: rgba(255, 211, 109, 0.2);
 }
 
-/* FIXED: .hero-logo-box was defined THREE separate times with conflicting styles
-   (a rounded box, then accidentally grouped with the circular ".site-intro-logo-ring",
-   then a third override on top of that). That fight between "aspect-ratio: 1 / circle"
-   and "min-height: 220px / rounded corners" is what was causing the big empty gap
-   around the logo. Now it has ONE clean definition and no longer shares a selector
-   with the intro splash-screen ring. */
 .hero-logo-box {
-  position: relative;
   min-height: 220px;
-  margin: 26px auto 0;
+  margin: 26px 0;
   padding: 24px;
   border-radius: 24px;
   border: 1px solid var(--border);
   background: radial-gradient(circle at top, rgba(78, 200, 255, 0.16), transparent 56%), rgba(255, 255, 255, 0.02);
   display: grid;
   place-items: center;
-  width: min(250px, 70vw);
-  overflow: hidden;
 }
 
 .hero-logo-box img {
-  width: auto;
-  max-width: min(100%, 250px);
-  max-height: 128px;
+  max-width: min(100%, 340px);
+  max-height: 140px;
   object-fit: contain;
-  object-position: center;
-  margin-inline: auto;
 }
 
-.logo-fallback-panel,
-.hero-logo-box .logo-fallback-panel {
+.logo-fallback-panel {
   display: none;
   place-items: center;
   gap: 10px;
@@ -1712,6 +1691,268 @@ button {
   }
 }
 
+.brand-logo {
+  width: auto;
+  max-width: clamp(126px, 16vw, 182px);
+  max-height: 58px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.footer-brand .brand-logo {
+  max-height: 52px;
+  max-width: min(180px, 42vw);
+}
+
+.hero-logo-box img {
+  width: auto;
+  max-width: min(100%, 250px);
+  max-height: 128px;
+  object-fit: contain;
+  object-position: center;
+  margin-inline: auto;
+}
+
+.toggle-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.toggle-chip {
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  color: var(--text-soft);
+  font-weight: 700;
+}
+
+.toggle-chip.active-toggle {
+  background: linear-gradient(135deg, rgba(78,200,255,0.18), rgba(18,141,255,0.16));
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.dashboard-stack,
+.manager-grid,
+.customer-order-list,
+.admin-order-list {
+  display: grid;
+  gap: 22px;
+}
+
+.manager-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.manager-grid.two-column {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.manager-card,
+.customer-order-card,
+.admin-order-card,
+.empty-dashboard-state {
+  border: 1px solid rgba(255,255,255,0.08);
+  background: linear-gradient(180deg, rgba(12, 22, 39, 0.88), rgba(8, 15, 27, 0.84));
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.manager-card-head,
+.customer-order-top,
+.admin-order-head,
+.delivery-panel,
+.stacked-head,
+.filter-row,
+.inline-check-row,
+.mini-stat-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.manager-card h3,
+.customer-order-card h3,
+.admin-order-card h3,
+.empty-dashboard-state h3 {
+  margin: 8px 0;
+}
+
+.manager-form,
+.portal-flow-list,
+.customer-order-card,
+.admin-order-card {
+  display: grid;
+  gap: 16px;
+}
+
+.portal-flow-list article {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 14px;
+  align-items: start;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.portal-flow-list article:last-child {
+  border-bottom: none;
+}
+
+.portal-flow-list span {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(78,200,255,0.12);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.portal-flow-list p,
+.dashboard-note p,
+.muted,
+.helper-text {
+  color: var(--text-soft);
+}
+
+.form-field label,
+.order-meta-grid span,
+.mini-stat-row span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-soft);
+  font-size: 0.92rem;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select,
+.filter-row input,
+.filter-row select {
+  width: 100%;
+  min-height: 52px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+  padding: 14px 16px;
+}
+
+.form-field textarea {
+  min-height: 132px;
+  resize: vertical;
+}
+
+.order-meta-grid,
+.compact-admin-grid,
+.mini-stat-row {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.order-meta-grid strong,
+.mini-stat-row strong {
+  display: block;
+}
+
+.dashboard-note {
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.order-timeline {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  align-items: start;
+}
+
+.timeline-step {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  text-align: center;
+  color: var(--muted);
+}
+
+.timeline-step span {
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+}
+
+.timeline-step.active {
+  color: var(--text);
+}
+
+.timeline-step.active span {
+  background: linear-gradient(90deg, #79deff, #128dff);
+}
+
+.cancelled-timeline .timeline-step span {
+  background: rgba(255, 120, 120, 0.12);
+}
+
+.delivery-panel {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 16px;
+}
+
+.external-portfolio-image {
+  min-height: 180px;
+  background-size: cover;
+  background-position: center;
+}
+
+.portfolio-link {
+  display: inline-flex;
+  margin-top: 10px;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.portfolio-link.muted {
+  color: var(--text-soft);
+}
+
+.filter-row {
+  margin-top: 14px;
+}
+
+.filter-row input {
+  min-width: min(100%, 320px);
+}
+
+.inline-check-row label,
+.stacked-checks label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-soft);
+}
+
+.auth-toggle-row {
+  justify-content: center;
+}
+
+.empty-dashboard-state {
+  text-align: center;
+}
+
 @media (max-width: 860px) {
   .brand-logo {
     max-width: 148px;
@@ -1795,12 +2036,8 @@ html.intro-lock body {
   text-align: center;
 }
 
-/* FIXED: this used to be ".site-intro-logo-ring, .hero-logo-box" combined —
-   that accidentally forced the circular splash-screen ring style onto the
-   hero section logo box too, fighting with hero-logo-box's own rounded-box
-   style above and creating the big blank gap. Now it only styles the intro
-   splash screen ring, and hero-logo-box is untouched by it. */
-.site-intro-logo-ring {
+.site-intro-logo-ring,
+.hero-logo-box {
   position: relative;
   width: min(280px, 72vw);
   aspect-ratio: 1;
@@ -1816,7 +2053,8 @@ html.intro-lock body {
   overflow: hidden;
 }
 
-.site-intro-logo-ring::before {
+.site-intro-logo-ring::before,
+.hero-logo-box::before {
   content: '';
   position: absolute;
   inset: 10px;
@@ -1824,7 +2062,8 @@ html.intro-lock body {
   border: 1px solid rgba(78, 200, 255, 0.18);
 }
 
-.site-intro-logo-ring::after {
+.site-intro-logo-ring::after,
+.hero-logo-box::after {
   content: '';
   position: absolute;
   inset: -1px;
@@ -1875,6 +2114,20 @@ html.intro-lock body {
 @keyframes introCopyReveal {
   from { opacity: 0; transform: translateY(18px) scale(0.98); }
   to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.hero-logo-box {
+  width: min(250px, 70vw);
+  margin-inline: auto;
+}
+
+.hero-logo-box .logo-fallback-panel {
+  display: none;
+  gap: 8px;
+  text-align: center;
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: 0.12em;
 }
 
 .order-progress-shell {
@@ -2141,5 +2394,85 @@ html.intro-lock body {
 
   .welcome-highlights span {
     width: 100%;
+  }
+}
+
+
+/* Partnership Google Form + floating order button */
+.floating-order {
+  position: fixed;
+  right: 18px;
+  bottom: 86px;
+  z-index: 1019;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(78, 200, 255, 0.26);
+  background: linear-gradient(135deg, rgba(6, 24, 39, 0.96), rgba(7, 17, 31, 0.94));
+  color: var(--text);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+}
+
+.floating-order .floating-icon {
+  background: rgba(78, 200, 255, 0.16);
+}
+
+.partner-form-card {
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.partner-form-card h4 {
+  margin: 14px 0 10px;
+  font-size: 1.05rem;
+}
+
+.partner-form-grid {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+}
+
+.partner-qr-wrap {
+  display: grid;
+  place-items: center;
+  padding: 10px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.partner-qr-image {
+  width: 100%;
+  max-width: 120px;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.partner-form-copy {
+  display: grid;
+  gap: 12px;
+}
+
+@media (max-width: 860px) {
+  .floating-order {
+    right: 14px;
+    bottom: 76px;
+    padding: 13px 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .partner-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .partner-qr-wrap {
+    max-width: 160px;
+    margin-inline: auto;
   }
 }
