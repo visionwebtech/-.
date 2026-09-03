@@ -1,4 +1,4 @@
-import { supabase, getAuthRedirectTarget, getCurrentUser, isAuthorizedAdminEmail } from './supabase-client.js';
+ import { supabase, getAuthRedirectTarget, getCurrentUser, isAuthorizedAdminEmail } from './supabase-client.js';
 
 const authForms = {
   login: document.querySelector('[data-login-form]'),
@@ -68,13 +68,27 @@ async function handleSignup(event) {
     });
     if (error) throw error;
 
-    if (!data.session) {
-      setStatus('Account created. Please check your email and confirm your address before signing in.', 'success');
+    let activeSession = data.session || null;
+
+    if (!activeSession) {
+      const { data: loginData, error: loginError } = await supabase.auth.signInWithPassword({ email, password });
+      if (loginError) {
+        setStatus('Account created. Please confirm your email if required, then log in with your email and password.', 'success');
+        showPanel('login');
+        const loginEmailField = authForms.login?.querySelector('[name="email"]');
+        if (loginEmailField && !loginEmailField.value) loginEmailField.value = email;
+        return;
+      }
+      activeSession = loginData.session || null;
+    }
+
+    if (!activeSession) {
+      setStatus('Account created successfully. Please log in with your email and password.', 'success');
       showPanel('login');
       return;
     }
 
-    setStatus('Account created successfully. Redirecting to your dashboard...', 'success');
+    setStatus('Account created successfully. Redirecting to your account...', 'success');
     window.location.replace(getAuthRedirectTarget('customer-dashboard.html'));
   } catch (error) {
     console.error(error);
