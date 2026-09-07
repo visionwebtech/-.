@@ -37,10 +37,11 @@
             <li><a href="partnership.html">Partnership</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
-          <a class="btn btn-primary nav-cta" data-link-type="whatsapp" href="https://wa.me/919546723997" target="_blank" rel="noopener" data-primary-cta-text data-primary-cta-text>Get Free Consultation</a>
+          <a class="btn btn-primary nav-cta" data-link-type="whatsapp" href="https://wa.me/919546723997" target="_blank" rel="noopener" data-primary-cta-text>Get Free Consultation</a>
         </div>
       </nav>
     </header>
+
     <main>
       <section class="welcome-stage">
         <div class="welcome-stage-backdrop" aria-hidden="true">
@@ -70,6 +71,58 @@
               <span>Modern Websites</span>
               <span>Business-Focused Design</span>
               <span>Responsive Development</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="review-section page-section" id="reviews">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">Customer Reviews</span>
+            <h2>What clients say about Vision Web Tech</h2>
+            <p>Share your experience with us. Your review helps other businesses choose the right partner.</p>
+          </div>
+
+          <div class="review-layout">
+            <form class="review-form" data-review-form novalidate>
+              <div class="form-field">
+                <label for="review-name">Name</label>
+                <input id="review-name" name="name" type="text" placeholder="Your name" required>
+              </div>
+              <div class="form-field">
+                <label for="review-email">Email</label>
+                <input id="review-email" name="email" type="email" placeholder="you@example.com" required>
+              </div>
+              <div class="form-field">
+                <label>Star rating</label>
+                <div class="star-row" role="radiogroup" aria-label="Star rating" data-star-target>
+                  <button type="button" data-value="1" aria-label="Rate 1 star" aria-pressed="false">★</button>
+                  <button type="button" data-value="2" aria-label="Rate 2 stars" aria-pressed="false">★</button>
+                  <button type="button" data-value="3" aria-label="Rate 3 stars" aria-pressed="false">★</button>
+                  <button type="button" data-value="4" aria-label="Rate 4 stars" aria-pressed="false">★</button>
+                  <button type="button" data-value="5" aria-label="Rate 5 stars" aria-pressed="false">★</button>
+                </div>
+                <input type="hidden" name="rating" value="0" data-star-input>
+                <span class="star-live" data-star-live aria-live="polite">0 of 5 stars</span>
+              </div>
+              <div class="form-field">
+                <label for="review-description">Your review</label>
+                <textarea id="review-description" name="description" rows="4" placeholder="Tell us about your experience" required></textarea>
+              </div>
+              <div class="form-field">
+                <label for="review-photo">Picture (optional)</label>
+                <input id="review-photo" name="photo" type="file" accept="image/*">
+                <span class="form-hint">An image related to your project or service.</span>
+              </div>
+              <button class="btn btn-primary full-width" type="submit">Submit Review</button>
+              <p class="form-status" data-review-status role="status" aria-live="polite">Fill the form above to publish a review at the bottom of this page.</p>
+            </form>
+
+            <div class="review-display">
+              <h3>Latest reviews</h3>
+              <p class="review-empty" data-review-empty>No reviews submitted yet. Be the first to share your experience.</p>
+              <div class="review-list" data-review-list></div>
             </div>
           </div>
         </div>
@@ -107,6 +160,7 @@
 
   <script src="assets/js/main.js"></script>
   <script type="module" src="assets/js/site-data.js"></script>
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+  <script type="module" src="assets/js/reviews.js"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","spa":2}' crossorigin="anonymous"></script>
 </body>
 </html>
