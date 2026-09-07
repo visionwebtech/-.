@@ -2195,284 +2195,171 @@ html.intro-lock body {
 }
 
 
-/* Home welcome page replacement + logo presentation fix */
-.welcome-stage {
+
+
+/* Inner-page spacing tidy + review section CSS */
+main > section.page-section,
+.section {
+  padding: 48px 0;
+}
+
+.page-hero {
+  padding: 56px 0 22px;
+}
+
+.section-heading {
+  margin-bottom: 22px;
+}
+
+.section-heading h2 {
+  margin: 8px 0 10px;
+}
+
+.review-section {
   position: relative;
-  min-height: calc(100vh - 120px);
+  padding: 64px 0 72px;
+}
+
+.review-layout {
   display: grid;
-  align-items: center;
-  overflow: clip;
-  padding: 84px 0 72px;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 28px;
 }
 
-.welcome-stage-backdrop {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-
-.welcome-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(14px);
-}
-
-.welcome-orb-one {
-  width: min(44vw, 520px);
-  aspect-ratio: 1;
-  top: -10%;
-  right: -8%;
-  background: radial-gradient(circle, rgba(78, 200, 255, 0.22), rgba(78, 200, 255, 0));
-}
-
-.welcome-orb-two {
-  width: min(30vw, 340px);
-  aspect-ratio: 1;
-  left: -6%;
-  bottom: 8%;
-  background: radial-gradient(circle, rgba(111, 226, 255, 0.14), rgba(78, 200, 255, 0));
-}
-
-.welcome-grid-glow {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(78, 200, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(78, 200, 255, 0.06) 1px, transparent 1px);
-  background-size: 62px 62px;
-  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.9), transparent 92%);
-}
-
-.welcome-grid {
-  position: relative;
-  z-index: 1;
+.review-form {
+  padding: 26px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(12, 22, 39, 0.88), rgba(8, 15, 27, 0.84));
+  box-shadow: var(--shadow);
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
-  gap: 36px;
-  align-items: center;
+  gap: 16px;
 }
 
-.welcome-copy {
-  max-width: 640px;
+.review-form .form-field label {
+  margin-bottom: 8px;
 }
 
-.welcome-copy h1 {
-  margin: 14px 0 18px;
-  font-size: clamp(2.8rem, 6vw, 5.6rem);
-  line-height: 0.98;
-  letter-spacing: -0.055em;
-}
-
-.welcome-copy p {
-  max-width: 58ch;
-  font-size: clamp(1.02rem, 1.8vw, 1.16rem);
-  color: var(--text-soft);
-}
-
-.welcome-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 28px;
-}
-
-.welcome-logo-showcase {
-  display: grid;
-  justify-items: center;
-  gap: 24px;
-}
-
-.welcome-logo-shell {
-  position: relative;
-  width: min(420px, 86vw);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  padding: clamp(26px, 5vw, 38px);
-  background:
-    radial-gradient(circle at center, rgba(78, 200, 255, 0.1), rgba(5, 11, 20, 0.94) 64%),
-    linear-gradient(180deg, rgba(14, 27, 48, 0.9), rgba(7, 14, 26, 0.95));
-  border: 1px solid rgba(117, 207, 255, 0.24);
-  box-shadow: 0 28px 72px rgba(0, 0, 0, 0.4), inset 0 0 34px rgba(78, 200, 255, 0.07);
-  overflow: hidden;
-}
-
-.welcome-logo-shell::before {
-  content: "";
-  position: absolute;
-  inset: 12px;
-  border-radius: 50%;
-  border: 1px solid rgba(78, 200, 255, 0.16);
-}
-
-.welcome-logo-shell::after {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  border-radius: 50%;
-  background: conic-gradient(from 180deg, rgba(78, 200, 255, 0.36), rgba(255,255,255,0.03), rgba(78, 200, 255, 0.14));
-  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
-  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
-}
-
-.welcome-logo {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  max-width: 310px;
-  object-fit: contain;
-  object-position: center;
-  clip-path: circle(49% at 50% 50%);
-  filter: drop-shadow(0 0 18px rgba(78, 200, 255, 0.14));
-}
-
-.welcome-logo-fallback {
-  position: relative;
-  z-index: 1;
-  min-height: 180px;
-  width: 100%;
-}
-
-.welcome-highlights {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-}
-
-.welcome-highlights span {
+.star-row {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 42px;
-  padding: 0 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(117, 207, 255, 0.18);
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text-soft);
-  text-align: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 8px 10px;
 }
 
-@media (max-width: 900px) {
-  .welcome-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .welcome-copy {
-    max-width: 100%;
-  }
-
-  .welcome-copy p {
-    margin-inline: auto;
-  }
-
-  .welcome-actions {
-    justify-content: center;
-  }
+.star-row button {
+  background: transparent;
+  border: 0;
+  font-size: 1.55rem;
+  line-height: 1;
+  color: rgba(255,255,255,0.32);
+  padding: 0 4px;
+  transition: transform var(--transition), color var(--transition);
 }
 
-@media (max-width: 640px) {
-  .welcome-stage {
-    min-height: auto;
-    padding: 64px 0 56px;
-  }
-
-  .welcome-copy h1 {
-    font-size: clamp(2.35rem, 11vw, 3.7rem);
-  }
-
-  .welcome-logo-shell {
-    width: min(360px, 88vw);
-    padding: 24px;
-  }
-
-  .welcome-logo {
-    max-width: 268px;
-  }
-
-  .welcome-highlights span {
-    width: 100%;
-  }
+.star-row button:hover,
+.star-row button:focus-visible {
+  transform: translateY(-2px);
+  color: #ffd36d;
 }
 
-
-/* Partnership Google Form + floating order button */
-.floating-order {
-  position: fixed;
-  right: 18px;
-  bottom: 86px;
-  z-index: 1019;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(78, 200, 255, 0.26);
-  background: linear-gradient(135deg, rgba(6, 24, 39, 0.96), rgba(7, 17, 31, 0.94));
-  color: var(--text);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+.star-row button.is-on {
+  color: #ffd36d;
+  text-shadow: 0 0 14px rgba(255, 211, 109, 0.36);
 }
 
-.floating-order .floating-icon {
-  background: rgba(78, 200, 255, 0.16);
+.star-live {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.92rem;
 }
 
-.partner-form-card {
-  margin-top: 22px;
-  padding-top: 22px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.partner-form-card h4 {
-  margin: 14px 0 10px;
-  font-size: 1.05rem;
-}
-
-.partner-form-grid {
-  display: grid;
-  grid-template-columns: 140px minmax(0, 1fr);
-  gap: 18px;
-  align-items: center;
-}
-
-.partner-qr-wrap {
-  display: grid;
-  place-items: center;
-  padding: 10px;
-  border-radius: 18px;
+.review-display {
+  padding: 26px;
+  border-radius: 22px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.03);
+  display: grid;
+  gap: 16px;
 }
 
-.partner-qr-image {
-  width: 100%;
-  max-width: 120px;
-  border-radius: 12px;
-  background: #ffffff;
+.review-display h3 {
+  margin: 4px 0;
 }
 
-.partner-form-copy {
+.review-empty {
+  color: var(--text-soft);
+}
+
+.review-list {
+  display: grid;
+  gap: 14px;
+}
+
+.review-card {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 18px;
+  background: linear-gradient(180deg, rgba(12, 22, 39, 0.72), rgba(8, 15, 27, 0.72));
   display: grid;
   gap: 12px;
+}
+
+.review-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  color: #07111f;
+  background: linear-gradient(135deg, #ffd36d, #4ec8ff);
+}
+
+.review-meta {
+  display: grid;
+  gap: 2px;
+}
+
+.review-meta strong {
+  font-size: 1rem;
+}
+
+.review-stars {
+  color: #ffd36d;
+  letter-spacing: 0.5px;
+  font-size: 0.95rem;
+}
+
+.review-date {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.review-body {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.review-photo {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 @media (max-width: 860px) {
-  .floating-order {
-    right: 14px;
-    bottom: 76px;
-    padding: 13px 16px;
-  }
-}
-
-@media (max-width: 640px) {
-  .partner-form-grid {
+  .review-layout {
     grid-template-columns: 1fr;
-  }
-
-  .partner-qr-wrap {
-    max-width: 160px;
-    margin-inline: auto;
   }
 }
